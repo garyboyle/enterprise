@@ -7,3 +7,4 @@ Things I think an enterprise app should have
 - Logging
 - gitignore
 - Linting + Formatting
+- Git hooks
