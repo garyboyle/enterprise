@@ -16,9 +16,16 @@ Things I think an enterprise app should have
 - .gitignore
 - branching strategy: trunk or gitflow
 
+# Security
+
+- Helmet
+- Remove fingerprints
+- HTTPS
+
 # Others
 
 - Testing
+- Security
 - Logging
 - gitignore
 - Git hooks
