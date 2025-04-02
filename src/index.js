@@ -1,15 +1,25 @@
 const express = require('express');
+const helmet = require('helmet');
 const requestLogger = require('./utils/request-logger');
 const logger = require('./utils/logger');
 const globalErrorHandler = require('./utils/global-error-handler');
-const helmet = require('helmet');
-const https = require('https');
-const fs = require('fs');
+const { setCorrelationId } = require('./utils/async-local-storage');
 
 const app = express();
 const port = 3000;
 
+app.use(setCorrelationId);
 app.use(requestLogger());
+
+app.use((res, req, next) => {
+  logger.info('========BEFORE');
+  next();
+});
+
+app.use((res, req, next) => {
+  setTimeout(() => logger.info('=========AFTER'), 5000);
+  next();
+});
 
 // Security best practices
 app.use(helmet());
@@ -34,12 +44,5 @@ app.use((req, res) => {
 
 app.use(globalErrorHandler);
 
-const sslOptions = {
-  key: fs.readFileSync('ssl/server.key'),
-  cert: fs.readFileSync('ssl/server.cert'),
-};
-
 // Create an HTTPS server
-https.createServer(sslOptions, app).listen(port, () => {
-  console.log(`🚀 HTTPS Server running on https://localhost:${port}`);
-});
+app.listen(port, () => logger.info(`Server started: http://localhost:${port}`));
