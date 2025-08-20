@@ -1,7 +1,7 @@
 {
   "name": "enterprise",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,7 +23,9 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "nodemon": "^3.1.9",
