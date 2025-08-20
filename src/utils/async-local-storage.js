@@ -1,5 +1,5 @@
-const { AsyncLocalStorage } = require('node:async_hooks');
-const { v4: uuidv4 } = require('uuid');
+import { AsyncLocalStorage } from 'node:async_hooks';
+import { v4 as uuidv4 } from 'uuid';
 
 const asyncLocalStorage = new AsyncLocalStorage();
 
@@ -17,4 +17,4 @@ function getCorrelationId() {
   return asyncLocalStorage.getStore()?.get('correlationId') || 'N/A';
 }
 
-module.exports = { setCorrelationId, getCorrelationId };
+export { setCorrelationId, getCorrelationId };

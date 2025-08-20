@@ -1,5 +1,5 @@
-const pino = require('pino');
-const { getCorrelationId } = require('./async-local-storage');
+import pino from 'pino';
+import { getCorrelationId } from './async-local-storage.js';
 
 const logger = pino({
   // transport: {
@@ -13,4 +13,4 @@ const logger = pino({
   },
 });
 
-module.exports = logger;
+export default logger;

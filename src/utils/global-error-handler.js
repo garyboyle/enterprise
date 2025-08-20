@@ -1,6 +1,6 @@
-const logger = require('./logger');
+import logger from './logger.js';
 
-module.exports = (err, req, res, next) => {
+export default (err, req, res, next) => {
   // So when you add a custom error handler, you must delegate to the default Express error handler,
   // when the headers have already been sent to the client
   // https://expressjs.com/en/guide/error-handling.html

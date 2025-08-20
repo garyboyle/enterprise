@@ -1,9 +1,9 @@
-const express = require('express');
-const helmet = require('helmet');
-const requestLogger = require('./utils/request-logger');
-const logger = require('./utils/logger');
-const globalErrorHandler = require('./utils/global-error-handler');
-const { setCorrelationId } = require('./utils/async-local-storage');
+import express from 'express';
+import helmet from 'helmet';
+import requestLogger from './utils/request-logger.js';
+import logger from './utils/logger.js';
+import globalErrorHandler from './utils/global-error-handler.js';
+import { setCorrelationId } from './utils/async-local-storage.js';
 
 const app = express();
 const port = 3000;

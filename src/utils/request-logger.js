@@ -1,1 +1,2 @@
-module.exports = require('pino-http');
+import pinoHttp from 'pino-http';
+export default pinoHttp;
